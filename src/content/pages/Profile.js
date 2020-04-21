@@ -42,11 +42,7 @@ const Profile = props => {
     <div>
       <h2>{props.user.firstname}'s Profile</h2>
       <h3>{props.user.firstname} {props.user.lastname}</h3>
-      <img alt="profile" src={props.user.profileUrl} />
-      <p>
-        <strong>Email:</strong>
-        {props.user.email}
-      </p>
+      <p>from <strong>{props.user.galocation}</strong> taking <strong>{props.user.gacourse}</strong></p>
       <button onClick={callServer}>Call /profile route on server</button>
       <p>{serverMessage}</p>
     </div>

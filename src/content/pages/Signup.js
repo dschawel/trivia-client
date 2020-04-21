@@ -9,12 +9,13 @@ const Signup = props => {
   let [lastname, setLastname] = useState('')
   let [message, setMessage] = useState('')
   let [password, setPassword] = useState('')
-  let [profileUrl, setProfileUrl] = useState('')
+  let [galocation, setGaLocation] = useState('')
+  let [gacourse, setGaCourse] = useState('')
 
   // Set message to blank if I'm typing in the form
   useEffect(() => {
     setMessage('')
-  }, [firstname, lastname, email, password, profileUrl])
+  }, [firstname, lastname, email, password, galocation, gacourse])
 
   const handleSubmit = e => {
     // Prevent default of form submissions
@@ -26,7 +27,8 @@ const Signup = props => {
       firstname,
       lastname,
       password,
-      profileUrl
+      galocation,
+      gacourse
     }
     
     // Send the user sign up data to the server
@@ -66,24 +68,28 @@ const Signup = props => {
       <span className="red">{message}</span>
       <form onSubmit={handleSubmit}>
         <div>
-          <label>First Name:</label>
+          <label>First Name: </label>
           <input name="firstname" placeholder="Your first name" onChange={e => setFirstname(e.target.value)} />
         </div>
         <div>
-          <label>Last Name:</label>
+          <label>Last Name: </label>
           <input name="lastname" placeholder="Your last name" onChange={e => setLastname(e.target.value)} />
         </div>
         <div>
-          <label>Email:</label>
+          <label>Email: </label>
           <input type="email" name="email" onChange={e => setEmail(e.target.value)} />
         </div>
         <div>
-          <label>Password:</label>
-          <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
+          <label>GA Location: </label>
+          <input name="galocation" onChange={e => setGaLocation(e.target.value)} />
         </div>
         <div>
-          <label>Profile Pic URL:</label>
-          <input type="url" name="profileUrl" onChange={e => setProfileUrl(e.target.value)} />
+          <label>GA Course: </label>
+          <input name="gacourse" onChange={e => setGaCourse(e.target.value)} />
+        </div>
+        <div>
+          <label>Password: </label>
+          <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
         </div>
         <button type="submit">Sign Me Up!</button>
       </form>
