@@ -3,7 +3,7 @@ import React from 'react'
 const Home = props => {
   return (
     <div>
-      <h2>HOME STUB</h2>
+      <h2>Seattle Trivia Challenge</h2>
     </div>
   )
 }
