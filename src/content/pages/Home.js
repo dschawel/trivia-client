@@ -33,24 +33,15 @@ const Home = props => {
       return (
         <div key={i}>
           <Table responsive>
-              <thead>
-                  <tr>
-                      <th>First Name</th>
-                      <th>Last Name</th>
-                      <th>GA Location</th>
-                      <th>GA Course</th>
-                      <th>Points</th>
-                  </tr>
-              </thead>
-                  <tbody>
-                      <tr >
-                          <td>{user.firstname}</td>
-                          <td>{user.lastname}</td>
-                          <td>{user.galocation}</td>
-                          <td>{user.gacourse}</td>
-                          <td>0</td>
-                      </tr>
-                  </tbody>
+            <tbody>
+                <tr >
+                    <td>{user.firstname}</td>
+                    <td>{user.lastname}</td>
+                    <td>{user.galocation}</td>
+                    <td>{user.gacourse}</td>
+                    <td>0</td>
+                </tr>
+            </tbody>
           </Table>
         </div>
       )
@@ -63,6 +54,15 @@ const Home = props => {
     <div className="leaderboard">
       <h2>Seattle Trivia Challenge</h2>
       <h3>Leaderboard</h3>
+      <thead>
+          <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>GA Location</th>
+              <th>GA Course</th>
+              <th>Points</th>
+          </tr>
+      </thead>
       {content}
     </div>
   )

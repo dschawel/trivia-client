@@ -40,7 +40,7 @@ const Nav = props => {
     <nav>
       <ul>
         <li>
-          <Link to="/">Home</Link>
+          <Link to="/">Leaderboard</Link>
         </li>
         {links}
       </ul>
