@@ -28,6 +28,9 @@ const Nav = props => {
       <span>
       <li>Hello {props.user.firstname}!</li>
       <li>
+        <Link to="/">Leaderboard</Link>
+      </li>
+      <li>
         <Link to="/profile">Profile</Link>
       </li>
       <li>
@@ -39,9 +42,6 @@ const Nav = props => {
   return (
     <nav>
       <ul>
-        <li>
-          <Link to="/">Leaderboard</Link>
-        </li>
         {links}
       </ul>
     </nav>

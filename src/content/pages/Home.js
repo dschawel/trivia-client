@@ -1,7 +1,5 @@
 import React, {useState, useEffect } from 'react'
-import BootstrapTable from 'react-bootstrap-table-next';
 import { Table } from 'reactstrap';
-// import cellEditFactory from 'react-bootstrap-table2-editor';
 
 const Home = props => {
   let [users, setUsers] = useState({})
