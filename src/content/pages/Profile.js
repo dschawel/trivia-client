@@ -43,8 +43,8 @@ const Profile = props => {
       <h2>{props.user.firstname}'s Profile</h2>
       <h3>{props.user.firstname} {props.user.lastname}</h3>
       <p>from <strong>{props.user.galocation}</strong> taking <strong>{props.user.gacourse}</strong></p>
-      <button onClick={callServer}>Call /profile route on server</button>
-      <p>{serverMessage}</p>
+      {/* <button onClick={callServer}>Call /profile route on server</button>
+      <p>{serverMessage}</p> */}
     </div>
   )
 }
