@@ -38,7 +38,7 @@ nav a:hover {
 
 th {
   min-width: 5em;
-  padding-right: 3.5em;
+  padding-right: 4em;
   text-align: left;
 }
 
@@ -68,7 +68,7 @@ footer {
 }
 
 .leaderboard {
-  margin-left: 3em;
+  margin: 0 auto;
 }
 
 .login {
