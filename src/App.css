@@ -43,6 +43,7 @@ th {
 }
 
 td {
+  line-height: 1em;
   min-width: 6.5em;
   text-align: left;
 }

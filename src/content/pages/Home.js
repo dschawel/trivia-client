@@ -52,8 +52,7 @@ const Home = props => {
 
   return (
     <div className="leaderboard">
-      <h2>Seattle Trivia Challenge</h2>
-      <h3>Leaderboard</h3>
+      <h2>Seattle Trivia Challenge Leaderboard</h2>
       <thead>
           <tr>
               <th>First Name</th>
