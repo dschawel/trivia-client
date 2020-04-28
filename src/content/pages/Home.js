@@ -3,6 +3,7 @@ import { Table } from 'reactstrap';
 
 const Home = props => {
   let [users, setUsers] = useState({})
+  let [points, setPoints] = useState('')
 
   useEffect(() => {
     getUsers()
@@ -27,6 +28,30 @@ const Home = props => {
     })
   }
 
+  const handlePoints = (e) => {
+    let token = localStorage.getItem('userToken')
+    e.preventDefault()
+    //API Call
+    let data = {
+      points
+    }
+    fetch(`${process.env.REACT_APP_SERVER_URL}/users`, {
+        method: 'PUT',
+        body: JSON.stringify(data),
+        headers: {
+            'Content-type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    })
+    .then(response => response.json())
+    .then(newPoints => {
+        setPoints(newPoints.points)
+    })
+    .catch(err => {
+        console.log('Failed to update points', err)
+    })
+  }
+
   let content
   if (users.length > 0) {
     content = users.map((user, i) => {
@@ -39,7 +64,7 @@ const Home = props => {
                     <td>{user.lastname}</td>
                     <td>{user.galocation}</td>
                     <td>{user.gacourse}</td>
-                    <td contentEditable='true'>0</td>
+                    <td contentEditable='true' onChange={e => setPoints(e.target.value)}>0</td>
                 </tr>
             </tbody>
           </Table>
@@ -63,6 +88,7 @@ const Home = props => {
           </tr>
       </thead>
       {content}
+      <button onClick={handlePoints}>Update Points</button>
     </div>
   )
 }
