@@ -1,5 +1,7 @@
 // Packages
 import React, { useEffect, useState } from 'react'
+import { Form, FormGroup, Label, Input } from 'reactstrap';
+import { Button } from 'reactstrap';
 import { Redirect } from 'react-router-dom'
 
 const Signup = props => {
@@ -63,36 +65,36 @@ const Signup = props => {
   }
 
   return (
-    <div>
+    <div className="signup">
       <h2>Signup</h2>
       <span className="red">{message}</span>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label>First Name: </label>
-          <input name="firstname" placeholder="Your first name" onChange={e => setFirstname(e.target.value)} />
-        </div>
-        <div>
-          <label>Last Name: </label>
-          <input name="lastname" placeholder="Your last name" onChange={e => setLastname(e.target.value)} />
-        </div>
-        <div>
-          <label>Email: </label>
-          <input type="email" name="email" onChange={e => setEmail(e.target.value)} />
-        </div>
-        <div>
-          <label>GA Location: </label>
-          <input name="galocation" onChange={e => setGaLocation(e.target.value)} />
-        </div>
-        <div>
-          <label>GA Course: </label>
-          <input name="gacourse" onChange={e => setGaCourse(e.target.value)} />
-        </div>
-        <div>
-          <label>Password: </label>
-          <input type="password" name="password" onChange={e => setPassword(e.target.value)} />
-        </div>
-        <button type="submit">Sign Me Up!</button>
-      </form>
+      <Form onSubmit={handleSubmit}>
+        <FormGroup>
+          <Label>First Name: </Label>
+          <Input name="firstname" onChange={e => setFirstname(e.target.value)} />
+        </FormGroup>
+        <FormGroup>
+          <Label>Last Name: </Label>
+          <Input name="lastname" onChange={e => setLastname(e.target.value)} />
+        </FormGroup>
+        <FormGroup>
+          <Label>Email: </Label>
+          <Input type="email" name="email" onChange={e => setEmail(e.target.value)} />
+        </FormGroup>
+        <FormGroup>
+          <Label>GA Location: </Label>
+          <Input name="galocation" onChange={e => setGaLocation(e.target.value)} />
+        </FormGroup>
+        <FormGroup>
+          <Label>GA Course: </Label>
+          <Input name="gacourse" onChange={e => setGaCourse(e.target.value)} />
+        </FormGroup>
+        <FormGroup>
+          <Label>Password: </Label>
+          <Input type="password" name="password" onChange={e => setPassword(e.target.value)} />
+        </FormGroup>
+        <Button type="submit" color="info">Sign Me Up!</Button>
+      </Form>
     </div>
   )
 }

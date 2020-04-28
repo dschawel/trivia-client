@@ -2,9 +2,13 @@
   text-align: center;
 }
 
+main {
+  min-height: 115vh;
+}
+
 nav {
   background-color: #282c34;
-  padding: 2px;
+  line-height: 2.5em;
 }
 
 nav ul {
@@ -34,7 +38,8 @@ nav a:hover {
 
 th {
   min-width: 5em;
-  padding-right: 1em;
+  padding-right: 3.5em;
+  text-align: left;
 }
 
 td {
@@ -44,6 +49,10 @@ td {
 
 label {
   padding-right: 10px;
+}
+
+input {
+  max-height: 1.5em;
 }
 
 footer {
@@ -62,9 +71,19 @@ footer {
 }
 
 .login {
+  color: #c63434;
   padding: 30px;
-  width: 40em;
+  width: 30vw;
   margin: 0 auto;
 }
+
+.signup {
+  color: #c63434;
+  margin: 10px;
+  width: 30vw;
+  margin: 0 auto;
+}
+
+
 
 

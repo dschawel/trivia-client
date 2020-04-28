@@ -67,7 +67,7 @@ const Login = props => {
             <Label>Password:</Label>
             <Input type="password" name="password" onChange={e => setPassword(e.target.value)} />
         </FormGroup>
-          <Button color="danger" type="submit">Log In!</Button>
+          <Button color="success" type="submit">Log In!</Button>
         </Form>
     </div>
   )
