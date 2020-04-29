@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import { Table } from 'reactstrap';
+import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
 
 const Home = props => {
   let [users, setUsers] = useState({})
@@ -45,13 +46,25 @@ const Home = props => {
     })
     .then(response => response.json())
     .then(newPoints => {
-        setPoints(newPoints)
+        setPoints(newPoints.user.points)
     })
     .catch(err => {
         console.log('Failed to update points', err)
     })
   }
 
+  // hoping this will sort the table by points once the points get saved
+  let sortedPoints = [...points];
+  sortedPoints.sort((a, b) => {
+    if (a.points < b.points) {
+      return -1;
+    }
+    if (a.points > b.points) {
+      return 1;
+    }
+    return 0;
+  })
+  
   let content
   if (users.length > 0) {
     content = users.map((user, i) => {
@@ -64,7 +77,7 @@ const Home = props => {
                     <td>{user.lastname}</td>
                     <td>{user.galocation}</td>
                     <td>{user.gacourse}</td>
-                    <td contentEditable='true' onChange={e => setPoints(e.target.value)}>0</td>
+                    <td name="points" contentEditable='true' onChange={e => setPoints(e.target.value)}>0</td>
                 </tr>
             </tbody>
           </Table>
@@ -94,3 +107,4 @@ const Home = props => {
 }
 
 export default Home
+
