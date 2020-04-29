@@ -45,7 +45,7 @@ const Home = props => {
     })
     .then(response => response.json())
     .then(newPoints => {
-        setPoints(newPoints.points)
+        setPoints(newPoints)
     })
     .catch(err => {
         console.log('Failed to update points', err)
@@ -57,7 +57,7 @@ const Home = props => {
     content = users.map((user, i) => {
       return (
         <div key={i}>
-          <Table responsive>
+          <Table bordered>
             <tbody>
                 <tr >
                     <td>{user.firstname}</td>
