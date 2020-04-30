@@ -83,11 +83,11 @@ const Signup = props => {
         </FormGroup>
         <FormGroup>
           <Label>GA Location: </Label>
-          <Input name="galocation" onChange={e => setGaLocation(e.target.value)} />
+          <Input name="galocation" placeholder="SEA, LA" onChange={e => setGaLocation(e.target.value)} />
         </FormGroup>
         <FormGroup>
           <Label>GA Course: </Label>
-          <Input name="gacourse" onChange={e => setGaCourse(e.target.value)} />
+          <Input name="gacourse" placeholder="SEI28, UX30" onChange={e => setGaCourse(e.target.value)} />
         </FormGroup>
         <FormGroup>
           <Label>Password: </Label>
