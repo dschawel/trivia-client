@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import { Table } from 'reactstrap';
-// import Table1 from './Table1'
+import Table1 from './Table1'
 
 const Home = props => {
   let [users, setUsers] = useState({})
@@ -36,6 +36,7 @@ const Home = props => {
     let data = {
       points
     }
+    console.log('Line 39', points)
     fetch(`${process.env.REACT_APP_SERVER_URL}/users`, {
         method: 'PUT',
         body: JSON.stringify(data),
@@ -47,7 +48,7 @@ const Home = props => {
     .then(response => response.json())
     .then(newPoints => {
       console.log('In the then statement', newPoints)
-      setPoints(newPoints.users.points)
+      setPoints(newPoints.user.points)
     })
     .catch(err => {
         console.log('Failed to update points', err)
@@ -66,34 +67,38 @@ const Home = props => {
   //   return 0;
   // })
   
-  let content
-  if (users.length > 0) {
-    content = users.map((user, i) => {
-      return (
-        <div key={i}>
-          <Table bordered>
-            <tbody>
-                <tr >
-                    <td>{user.firstname}</td>
-                    <td>{user.lastname}</td>
-                    <td>{user.galocation}</td>
-                    <td>{user.gacourse}</td>
-                    <td name="points" id="points" contentEditable='true' onChange={e => setPoints(e.target.value)} suppressContentEditableWarning={true}>{user.points}</td>
-                </tr>
-            </tbody>
-          </Table>
-        </div>
-      )
-    })
-  } else {
-    content = <p>No Users Yet...</p>
-  }
+  // let content
+  // if (users) {
+  //   // content = users.map((user, i) => {
+  //     return (
+  //       <div>
+  //         <Table bordered>
+  //           <tbody>
+  //               <tr >
+  //                   <td>{users.firstname}</td>
+  //                   <td>{users.lastname}</td>
+  //                   <td>{users.galocation}</td>
+  //                   <td>{users.gacourse}</td>
+  //                   <td name="points" contentEditable='true' onChange={e => setPoints(e.target.value)} suppressContentEditableWarning={true}>{users.points}</td>
+  //               </tr>
+  //           </tbody>
+  //         </Table>
+  //       </div>
+  //     )
+  //   // })
+  // } else {
+  //   content = <p>No Users Yet...</p>
+  // }
+
+  let data = [
+    { firstname: "David", lastname: "Schawel", galocation: "SEA", gacourse: "SEI28", points: "0" }
+  ]
 
   return (
     <div className="leaderboard">
       <h2>Seattle Trivia Challenge Leaderboard</h2>
-      {/* <Table1 data={content}/> */}
-      <table>
+      <Table1 data={data}/>
+      {/* <table>
         <thead>
             <tr>
                 <th>First Name</th>
@@ -103,8 +108,8 @@ const Home = props => {
                 <th>Points</th>
             </tr>
         </thead>
-      </table>
-      {content}
+      </table> */}
+      {/* {content} */}
       <button onClick={handlePoints}>Update Points</button>
       </div>
     

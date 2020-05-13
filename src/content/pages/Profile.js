@@ -1,37 +1,37 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { Redirect } from 'react-router-dom'
 
 const Profile = props => {
   // Declare and initalize state
-  let [serverMessage, setServerMessage] = useState('')
+  // let [serverMessage, setServerMessage] = useState('')
 
-  const callServer = () => {
-    let token = localStorage.getItem('userToken')
-    fetch(`${process.env.REACT_APP_SERVER_URL}/auth/profile`, {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
-    .then(response => {
-      console.log('In the .then() code', response)
-      response.json().then(result => {
-        if (response.ok) {
-          console.log('YAY', result)
-          setServerMessage(result.message)
-        }
-        else {
-          console.log('Darn', result)
-          setServerMessage('No secret message for you')
-        }
-      })
-      .catch(err => {
-        console.log('Error parson JSON')
-      })
-    })
-    .catch(err => {
-      console.log('Some sort of error', err)
-    })
-  }
+  // const callServer = () => {
+  //   let token = localStorage.getItem('userToken')
+  //   fetch(`${process.env.REACT_APP_SERVER_URL}/auth/profile`, {
+  //     headers: {
+  //       'Authorization': `Bearer ${token}`
+  //     }
+  //   })
+  //   .then(response => {
+  //     console.log('In the .then() code', response)
+  //     response.json().then(result => {
+  //       if (response.ok) {
+  //         console.log('YAY', result)
+  //         setServerMessage(result.message)
+  //       }
+  //       else {
+  //         console.log('Darn', result)
+  //         setServerMessage('No secret message for you')
+  //       }
+  //     })
+  //     .catch(err => {
+  //       console.log('Error parson JSON')
+  //     })
+  //   })
+  //   .catch(err => {
+  //     console.log('Some sort of error', err)
+  //   })
+  // }
 
   // If there is not a user, send them away
   if (!props.user) {
