@@ -1,6 +1,6 @@
 import React, {useState, useEffect } from 'react'
 import { Table } from 'reactstrap';
-import {BootstrapTable, TableHeaderColumn} from 'react-bootstrap-table';
+// import Table1 from './Table1'
 
 const Home = props => {
   let [users, setUsers] = useState({})
@@ -46,7 +46,8 @@ const Home = props => {
     })
     .then(response => response.json())
     .then(newPoints => {
-        setPoints(newPoints.user.points)
+      console.log('In the then statement', newPoints)
+      setPoints(newPoints.users.points)
     })
     .catch(err => {
         console.log('Failed to update points', err)
@@ -54,16 +55,16 @@ const Home = props => {
   }
 
   // hoping this will sort the table by points once the points get saved
-  let sortedPoints = [...points];
-  sortedPoints.sort((a, b) => {
-    if (a.points < b.points) {
-      return -1;
-    }
-    if (a.points > b.points) {
-      return 1;
-    }
-    return 0;
-  })
+  // let sortedPoints = [...points];
+  // sortedPoints.sort((a, b) => {
+  //   if (a.points < b.points) {
+  //     return -1;
+  //   }
+  //   if (a.points > b.points) {
+  //     return 1;
+  //   }
+  //   return 0;
+  // })
   
   let content
   if (users.length > 0) {
@@ -77,7 +78,7 @@ const Home = props => {
                     <td>{user.lastname}</td>
                     <td>{user.galocation}</td>
                     <td>{user.gacourse}</td>
-                    <td name="points" contentEditable='true' onChange={e => setPoints(e.target.value)}>0</td>
+                    <td name="points" id="points" contentEditable='true' onChange={e => setPoints(e.target.value)} suppressContentEditableWarning={true}>{user.points}</td>
                 </tr>
             </tbody>
           </Table>
@@ -91,18 +92,22 @@ const Home = props => {
   return (
     <div className="leaderboard">
       <h2>Seattle Trivia Challenge Leaderboard</h2>
-      <thead>
-          <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>GA Location</th>
-              <th>GA Course</th>
-              <th>Points</th>
-          </tr>
-      </thead>
+      {/* <Table1 data={content}/> */}
+      <table>
+        <thead>
+            <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+                <th>GA Location</th>
+                <th>GA Course</th>
+                <th>Points</th>
+            </tr>
+        </thead>
+      </table>
       {content}
       <button onClick={handlePoints}>Update Points</button>
-    </div>
+      </div>
+    
   )
 }
 
